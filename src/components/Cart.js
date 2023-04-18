@@ -8,7 +8,7 @@ export default function Cart({ setItemCart, itemCart }) {
 
     // does not work with onClick as you need to pass a param
     // remove button appears doe
-    function removeItem(e) {
+    function handleRemoveBtn(e) {
         setItemCart(itemCart.filter(object => {
             if (object.name === e.target.getAttribute("id"))
                 return false;
@@ -32,7 +32,7 @@ export default function Cart({ setItemCart, itemCart }) {
                                         <img src={item.image} alt={item.name}></img>
                                         <span>
                                             Quantity: {item.count}<br />
-                                            <button className="remove-btn" id={`${item.name}`} onClick={removeItem}>Remove</button>
+                                            <button className="remove-btn" id={`${item.name}`} onClick={handleRemoveBtn}>Remove</button>
                                         </span>
                                         <span>Cost: ${item.cost}</span>
                                     </div>

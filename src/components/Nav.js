@@ -1,9 +1,22 @@
-import { GiOpenTreasureChest } from 'react-icons/gi'
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from '../logo.png'
 
 
-export default function Nav() {
+export default function Nav({ itemCart }) {
+    const [count, setCount] = useState(0);
+    function getCount() {
+        let tempCount = 0;
+        for (const item of itemCart) {
+            tempCount += item.count;
+        }
+        setCount(tempCount);
+    }
+
+    useEffect(() => {
+        getCount();
+    }, [itemCart])
+    
 
     return (
         <nav>
@@ -16,7 +29,10 @@ export default function Nav() {
                     <li className="shop-link">Shop</li>
                 </Link>
                 <Link to="/cart">
-                    <li className="cart-link">Cart</li>
+                    <div className='cart-link-box'>
+                        <li className="cart-link">Cart</li>
+                        {count !== 0 && <span className='current-items-indicator'>{count}</span>}
+                    </div>
                 </Link>
             </ul>
         </nav>

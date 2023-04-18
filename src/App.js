@@ -11,12 +11,12 @@ function App() {
   const [itemCart, setItemCart] = useState([]);
 
   useEffect(() => {
-    // Write code to make link 'Cart' in navbar signal indicating items have been added (Red circle)
+    
   },[itemCart])
   return (
     <BrowserRouter>
       <div className="main-box">
-        <Nav />
+        <Nav itemCart={itemCart} />
         <Routes>
           <Route path='/' exact element={<Homepage key="homepage" />} />
           <Route path='/shop' exact element={<Shop key="shop" setItemCart={setItemCart} itemCart={itemCart}/>} />
