@@ -8,7 +8,7 @@ export default function Shop({setItemCart, itemCart}) {
 
     async function fetchItems() {
         try {
-            const url = `http://ddragon.leagueoflegends.com/cdn/13.7.1/data/en_US/item.json`;
+            const url = `https://ddragon.leagueoflegends.com/cdn/13.7.1/data/en_US/item.json`;
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(

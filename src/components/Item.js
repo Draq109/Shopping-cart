@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Item({ item, id, desc, setItemCart, itemCart }) {
     const [count, setCount] = useState(1);
-    const imageURL = `http://ddragon.leagueoflegends.com/cdn/13.7.1/img/item/${id}.png`
+    const imageURL = `https://ddragon.leagueoflegends.com/cdn/13.7.1/img/item/${id}.png`
 
     function itemExists(name, array) {
 
